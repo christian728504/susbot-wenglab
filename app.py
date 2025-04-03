@@ -4,6 +4,8 @@ from datetime import datetime
 
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from slack_bolt.app import App
+from dotenv import load_dotenv
+load_dotenv('.env')
 
 import config
 from utils.log import setup_logger

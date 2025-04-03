@@ -1,0 +1,22 @@
+[project]
+name = "susbot-wenglab"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "geopy",
+    "iopath",
+    "python-Levenshtein",
+    "slack-bolt",
+    "tabulate",
+    "termcolor",
+    "thefuzz",
+    "tqdm",
+    "unidecode",
+    "pyslurm",
+    "python-dotenv>=1.1.0",
+]
+
+[tool.uv.sources]
+pyslurm = {git = "https://github.com/PySlurm/pyslurm.git", rev = "v21.8.1"}
