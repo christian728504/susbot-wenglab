@@ -55,6 +55,7 @@ def get_slurm_node_df():
             ])
         )
         node_df = node_df.with_columns(pl.col("gres_usage").replace("NaN%", ""))
+        node_df = node_df.with_columns(pl.col("gres").replace("0", ""))
         custom_order = ["30mins", "4hours", "12hours", "5days", "gpu"]
         order_dict = {val: i for i, val in enumerate(custom_order)}
         node_df = (node_df
@@ -105,3 +106,7 @@ def get_slurm_statistics_df():
     except ValueError as e:
         logger.error(f"Error - {e.args[0]}")
         return pl.DataFrame()
+
+@cache_for_n_seconds(seconds=2)
+def get_slurm_version():
+    return pyslurm.version()

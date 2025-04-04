@@ -8,12 +8,6 @@ from utils.utils import _get_users
 logger = get_logger(__name__)
 
 def get_node_info():
-    """
-    Gets basic Slurm node information.
-
-    Returns:
-        A string containing formatted node information.
-    """
     node_df = get_slurm_node_df()
     if node_df.is_empty():
         logger.warning("No Nodes found!")
@@ -33,7 +27,7 @@ def get_node_info():
     
     return output
 
-def get_squeue(real_name: str, username: str = None) -> pl.DataFrame:
+def get_squeue(real_name: str, username: str = None) -> str:
     USERS = _get_users()
     
     job_df = get_slurm_job_df()

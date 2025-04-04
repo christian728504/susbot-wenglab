@@ -10,6 +10,7 @@ load_dotenv(".env")
 import config
 from utils.log import setup_logger
 from cluster.node import get_node_info, get_squeue
+from cluster.query_slurm import get_slurm_version
 
 logger = setup_logger(output=config.LOGGER_OUTPUT, level=config.LOGGER_LEVEL)
 
@@ -58,6 +59,10 @@ def squeue_command(ack, command, say, client):
         initial_comment="Here's your job queue information:"
     )
     say(f"Execution time: {((time.time() * 1000) - start):.2f} milliseconds")
+    
+@app.command("/version")
+def get_my_id(ack):
+    ack(text=f"Current version of SLURM is {get_slurm_version()}")
     
 @app.command("/myid")
 def get_my_id(ack, body):
