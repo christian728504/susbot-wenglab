@@ -30,11 +30,11 @@ def _format_time(seconds):
 
     parts = []
     if days > 0:
-        parts.append(f"{days}-")
+        parts.append(f"{days}:")
     if hours > 0:
-        parts.append(f"{hours}:")
-    parts.append(f"{mins}:")
-    parts.append(f"{secs}")
+        parts.append(f"{hours:02d}:")
+    parts.append(f"{mins:02d}:")
+    parts.append(f"{secs:02d}")
 
     return "".join(parts)
 
@@ -68,3 +68,53 @@ def _get_users():
             user_info.append(User(str(username), str(unix_uid), str(real_name)))
             
     return user_info
+
+def _require_bot_in_channel(logger):
+    def middleware(next):
+        def process(body, client, context, payload, **kwargs):
+            # Get necessary information
+            channel_id = payload.get("channel_id")
+            user_id = payload.get("user_id")
+            
+            try:
+                # Get bot's user ID
+                bot_info = client.auth_test()
+                bot_user_id = bot_info["user_id"]
+                
+                # Check if bot is in channel
+                try:
+                    response = client.conversations_members(channel=channel_id)
+                    members = response.get("members", [])
+                    
+                    if bot_user_id not in members:
+                        # Bot is not in the channel, send ephemeral message
+                        client.chat_postEphemeral(
+                            channel=channel_id,
+                            user=user_id,
+                            text="I need to be invited to this channel to use this command. Please add me using `/invite @botname`"
+                        )
+                        return  # Stop processing
+                    
+                    # Bot is in channel, proceed with next middleware/handler
+                    return next(**kwargs)
+                    
+                except Exception as e:
+                    logger.error(f"Error checking channel membership: {e}")
+                    client.chat_postEphemeral(
+                        channel=channel_id,
+                        user=user_id,
+                        text=f"Error: Could not verify channel membership. {str(e)}"
+                    )
+                    return
+                    
+            except Exception as e:
+                logger.error(f"Error in bot_in_channel middleware: {e}")
+                client.chat_postEphemeral(
+                    channel=channel_id,
+                    user=user_id,
+                    text="An unexpected error occurred"
+                )
+                return
+                
+        return process
+    return middleware

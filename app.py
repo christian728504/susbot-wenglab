@@ -32,13 +32,14 @@ def cluster_command(ack, say):
     say(output)
     
 @app.command("/squeue")
-def squeue_command(ack, command, body, say, client):
+def squeue_command(ack, command, say, client):
+    # TODO: Hide command when not in channel or handle errors otherwise
+    
     start = time.time() * 1000
-    
-    username = command.get("text")
-    
     ack()
-    user_id = body["user_id"]
+    
+    user_id = command['user_id']
+    username = command.get("text")
     result = client.users_info(user=user_id)
     user = result["user"]
     real_name = user.get("real_name")
@@ -56,6 +57,7 @@ def squeue_command(ack, command, body, say, client):
         file=tmp_name,
         initial_comment="Here's your job queue information:"
     )
+    say(f"Execution time: {((time.time() * 1000) - start):.2f} milliseconds")
     
 @app.command("/myid")
 def get_my_id(ack, body):

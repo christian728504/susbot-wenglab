@@ -82,6 +82,7 @@ def get_slurm_job_df():
         jobs_df = pl.DataFrame(jobs, infer_schema_length=None)
         jobs_df = jobs_df.drop(["cpus_allocated", "cpus_alloc_layout"])
         jobs_df = jobs_df.with_columns(pl.col("eligible_time", "end_time", "start_time", "submit_time").map_elements(lambda x: datetime.fromtimestamp(x), return_dtype=pl.Datetime))
+        jobs_df = jobs_df.sort("run_time", descending=True)
         jobs_df = jobs_df.with_columns(pl.col("run_time").map_elements(lambda x: _format_time(x), return_dtype=pl.Utf8).alias("run_time_str"))
         jobs_df = jobs_df.with_columns(pl.col("user_id").cast(pl.Utf8))
         jobs_df = jobs_df.with_columns(pl.col("name").map_elements(lambda x: x[:10] + "..." if len(x) > 10 else x, return_dtype=pl.Utf8))
