@@ -55,7 +55,7 @@ def get_slurm_node_df():
             ])
         )
         node_df = node_df.with_columns(pl.col("gres_usage").replace("NaN%", ""))
-        node_df = node_df.with_columns(pl.col("gres").replace("0", ""))
+        node_df = node_df.with_columns(pl.col("gres").cast(pl.Utf8).replace("0", ""))
         custom_order = ["30mins", "4hours", "12hours", "5days", "gpu"]
         order_dict = {val: i for i, val in enumerate(custom_order)}
         node_df = (node_df
