@@ -2,8 +2,6 @@ import os
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-from thefuzz import fuzz
-from unidecode import unidecode
 import pwd
 
 from utils.log import get_logger

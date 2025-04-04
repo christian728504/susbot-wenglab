@@ -1,61 +1,61 @@
 {
     "parts_packed": 1,
-    "req_time": 1743727324,
+    "req_time": 1743777022,
     "req_time_start": 1743724800,
     "server_thread_count": 3,
     "agent_queue_size": 0,
     "schedule_cycle_max": 96372,
-    "schedule_cycle_last": 4408,
-    "schedule_cycle_sum": 11375029,
-    "schedule_cycle_counter": 2492,
-    "schedule_cycle_depth": 193385,
-    "schedule_queue_len": 80,
-    "jobs_submitted": 1858,
-    "jobs_started": 2148,
-    "jobs_completed": 2207,
+    "schedule_cycle_last": 4621,
+    "schedule_cycle_sum": 97526536,
+    "schedule_cycle_counter": 24475,
+    "schedule_cycle_depth": 1868876,
+    "schedule_queue_len": 77,
+    "jobs_submitted": 18602,
+    "jobs_started": 18895,
+    "jobs_completed": 18953,
     "jobs_canceled": 0,
     "jobs_failed": 0,
-    "jobs_pending": 79,
+    "jobs_pending": 77,
     "jobs_running": 54,
-    "job_states_ts": 1743727307,
+    "job_states_ts": 1743776993,
     "bf_backfilled_jobs": 1550,
     "bf_last_backfilled_jobs": 0,
-    "bf_cycle_counter": 21,
-    "bf_cycle_sum": 297396,
-    "bf_cycle_last": 9580,
+    "bf_cycle_counter": 435,
+    "bf_cycle_sum": 3997953,
+    "bf_cycle_last": 8449,
     "bf_cycle_max": 18117,
-    "bf_last_depth": 71,
+    "bf_last_depth": 77,
     "bf_last_depth_try": 38,
-    "bf_depth_sum": 1839,
-    "bf_depth_try_sum": 1060,
-    "bf_queue_len": 71,
-    "bf_queue_len_sum": 1591,
-    "bf_when_last_cycle": 1743727252,
+    "bf_depth_sum": 33547,
+    "bf_depth_try_sum": 16794,
+    "bf_queue_len": 77,
+    "bf_queue_len_sum": 33299,
+    "bf_when_last_cycle": 1743776936,
     "bf_active": 0,
     "rpc_type_stats": {
         "MESSAGE_NODE_REGISTRATION_STATUS": {
             "id": 1002,
-            "count": 10916,
-            "ave_time": 1076,
-            "total_time": 11750869
+            "count": 11798,
+            "ave_time": 1077,
+            "total_time": 12709090
         },
         "REQUEST_JOB_INFO": {
             "id": 2003,
-            "count": 569,
-            "ave_time": 2681,
-            "total_time": 1525862
+            "count": 593,
+            "ave_time": 2695,
+            "total_time": 1598226
         },
         "REQUEST_PARTITION_INFO": {
             "id": 2009,
-            "count": 1469,
-            "ave_time": 498,
-            "total_time": 731926
+            "count": 1601,
+            "ave_time": 499,
+            "total_time": 799820
         },
         "REQUEST_NODE_INFO": {
             "id": 2007,
-            "count": 146,
-            "ave_time": 1529,
-            "total_time": 223257
+            "count": 266,
+            "ave_time": 1558,
+            "total_time": 414659
         },
         "REQUEST_CANCEL_JOB_STEP": {
             "id": 5005,
@@ -65,9 +65,9 @@
         },
         "REQUEST_STEP_COMPLETE": {
             "id": 5016,
-            "count": 148900,
-            "ave_time": 726,
-            "total_time": 108171286
+            "count": 182323,
+            "ave_time": 720,
+            "total_time": 131394192
         },
         "REQUEST_COMPLETE_JOB_ALLOCATION": {
             "id": 5017,
@@ -77,9 +77,9 @@
         },
         "MESSAGE_EPILOG_COMPLETE": {
             "id": 6012,
-            "count": 79573,
-            "ave_time": 226,
-            "total_time": 18030138
+            "count": 96320,
+            "ave_time": 216,
+            "total_time": 20837303
         },
         "REQUEST_KILL_JOB": {
             "id": 5032,
@@ -89,45 +89,45 @@
         },
         "REQUEST_COMPLETE_BATCH_SCRIPT": {
             "id": 5018,
-            "count": 79562,
-            "ave_time": 1171,
-            "total_time": 93240530
+            "count": 96309,
+            "ave_time": 1160,
+            "total_time": 111779735
         },
         "REQUEST_SUBMIT_BATCH_JOB": {
             "id": 4003,
-            "count": 70112,
-            "ave_time": 3084,
-            "total_time": 216248101
+            "count": 86856,
+            "ave_time": 3029,
+            "total_time": 263113499
         },
         "REQUEST_COMPLETE_PROLOG": {
             "id": 6018,
-            "count": 79648,
-            "ave_time": 1473,
-            "total_time": 117322509
+            "count": 96395,
+            "ave_time": 1303,
+            "total_time": 125647520
         },
         "REQUEST_HET_JOB_ALLOC_INFO": {
             "id": 4027,
-            "count": 69367,
-            "ave_time": 757,
-            "total_time": 52515510
+            "count": 86047,
+            "ave_time": 723,
+            "total_time": 62281680
         },
         "REQUEST_JOB_STEP_CREATE": {
             "id": 5001,
-            "count": 69374,
-            "ave_time": 3017,
-            "total_time": 209328031
+            "count": 86054,
+            "ave_time": 2873,
+            "total_time": 247258043
         },
         "REQUEST_FED_INFO": {
             "id": 2049,
-            "count": 909,
+            "count": 912,
             "ave_time": 547,
-            "total_time": 497501
+            "total_time": 499466
         },
         "REQUEST_JOB_USER_INFO": {
             "id": 2039,
-            "count": 842,
-            "ave_time": 1738,
-            "total_time": 1464051
+            "count": 845,
+            "ave_time": 1734,
+            "total_time": 1466025
         },
         "REQUEST_JOB_REQUEUE": {
             "id": 5023,
@@ -173,35 +173,35 @@
         },
         "REQUEST_BUILD_INFO": {
             "id": 2001,
-            "count": 52,
-            "ave_time": 687,
-            "total_time": 35741
+            "count": 166,
+            "ave_time": 690,
+            "total_time": 114688
         },
         "REQUEST_STATS_INFO": {
             "id": 2035,
-            "count": 6,
-            "ave_time": 560,
-            "total_time": 3364
+            "count": 19,
+            "ave_time": 529,
+            "total_time": 10063
         }
     },
     "rpc_user_stats": {
         "root": {
             "id": 0,
-            "count": 398635,
-            "ave_time": 874,
-            "total_time": 348567049
+            "count": 483181,
+            "ave_time": 832,
+            "total_time": 402419557
         },
         "ubuntu": {
             "id": 1002,
-            "count": 202,
-            "ave_time": 1165,
-            "total_time": 235377
+            "count": 212,
+            "ave_time": 1169,
+            "total_time": 248024
         },
         "andrewsg": {
             "id": 14004,
-            "count": 206731,
-            "ave_time": 2271,
-            "total_time": 469553801
+            "count": 256834,
+            "ave_time": 2196,
+            "total_time": 564098652
         },
         "sheddn": {
             "id": 11034,
@@ -217,9 +217,9 @@
         },
         "campbellm": {
             "id": 1514701014,
-            "count": 357,
-            "ave_time": 1555,
-            "total_time": 555261
+            "count": 367,
+            "ave_time": 1573,
+            "total_time": 577428
         },
         "dugase": {
             "id": 1514701016,
@@ -247,9 +247,9 @@
         },
         "ramirezc": {
             "id": 1514701009,
-            "count": 259,
-            "ave_time": 1799,
-            "total_time": 465948
+            "count": 649,
+            "ave_time": 1339,
+            "total_time": 869108
         }
     }
 }

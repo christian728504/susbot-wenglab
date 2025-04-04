@@ -1,6 +1,6 @@
 import os
 import time
-
+import tempfile
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from slack_bolt.app import App
 from dotenv import load_dotenv
@@ -9,7 +9,7 @@ load_dotenv(".env")
 
 import config
 from utils.log import setup_logger
-from cluster.node import get_node_info
+from cluster.node import get_node_info, get_squeue
 
 logger = setup_logger(output=config.LOGGER_OUTPUT, level=config.LOGGER_LEVEL)
 
@@ -20,7 +20,7 @@ app = App(
 )
 
 @app.command("/cluster")
-def cluster_info(ack, say):
+def cluster_command(ack, say):
     """
     Handles the /cluster command to display basic Slurm node information.
     """
@@ -31,10 +31,55 @@ def cluster_info(ack, say):
     output += f"Execution time: {((time.time() * 1000) - start):.2f} milliseconds"
     say(output)
     
+@app.command("/squeue")
+def squeue_command(ack, command, body, say, client):
+    start = time.time() * 1000
+    
+    username = command.get("text")
+    
+    ack()
+    user_id = body["user_id"]
+    result = client.users_info(user=user_id)
+    user = result["user"]
+    real_name = user.get("real_name")
+    
+    squeue = get_squeue(real_name, username=username)
+
+    with tempfile.NamedTemporaryFile(mode='w+', suffix='.txt', delete=False) as tmp:
+        tmp.write(squeue)
+        tmp_name = tmp.name
+    
+    client.files_upload_v2(
+        channel=command['channel_id'],
+        title="Job Queue Information",
+        filename="squeue_results.txt",
+        file=tmp_name,
+        initial_comment="Here's your job queue information:"
+    )
+    
 @app.command("/myid")
 def get_my_id(ack, body):
     user_id = body["user_id"]
     ack(text=f"Your Slack User ID is: {user_id}")
+    
+@app.command("/debug")
+def handle_command(ack, say, command, client):
+    ack()
+    user_id = command['user_id']
+    if not user_id == os.environ["PERSONAL_SLACK_USER_ID"]:
+        say("Invalid permissions")
+    try:
+        result = client.users_info(user=user_id)
+        user = result["user"]
+        real_name = user.get("real_name")
+        username = user.get("name")
+        logger.info(f"Real name: {real_name}, Username: {username}")
+        client.chat_postMessage(
+            channel=command['channel_id'],
+            text=f"Hello {real_name} (@{username})!"
+        )
+    except Exception as e:
+        logger.error(f"Error fetching user info: {e}")
 
 if __name__ == "__main__":
     SocketModeHandler(app, app_token=os.environ["SLACK_APP_TOKEN"]).start()
