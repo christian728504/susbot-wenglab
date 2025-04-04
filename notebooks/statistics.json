@@ -1,0 +1,255 @@
+{
+    "parts_packed": 1,
+    "req_time": 1743727324,
+    "req_time_start": 1743724800,
+    "server_thread_count": 3,
+    "agent_queue_size": 0,
+    "schedule_cycle_max": 96372,
+    "schedule_cycle_last": 4408,
+    "schedule_cycle_sum": 11375029,
+    "schedule_cycle_counter": 2492,
+    "schedule_cycle_depth": 193385,
+    "schedule_queue_len": 80,
+    "jobs_submitted": 1858,
+    "jobs_started": 2148,
+    "jobs_completed": 2207,
+    "jobs_canceled": 0,
+    "jobs_failed": 0,
+    "jobs_pending": 79,
+    "jobs_running": 54,
+    "job_states_ts": 1743727307,
+    "bf_backfilled_jobs": 1550,
+    "bf_last_backfilled_jobs": 0,
+    "bf_cycle_counter": 21,
+    "bf_cycle_sum": 297396,
+    "bf_cycle_last": 9580,
+    "bf_cycle_max": 18117,
+    "bf_last_depth": 71,
+    "bf_last_depth_try": 38,
+    "bf_depth_sum": 1839,
+    "bf_depth_try_sum": 1060,
+    "bf_queue_len": 71,
+    "bf_queue_len_sum": 1591,
+    "bf_when_last_cycle": 1743727252,
+    "bf_active": 0,
+    "rpc_type_stats": {
+        "MESSAGE_NODE_REGISTRATION_STATUS": {
+            "id": 1002,
+            "count": 10916,
+            "ave_time": 1076,
+            "total_time": 11750869
+        },
+        "REQUEST_JOB_INFO": {
+            "id": 2003,
+            "count": 569,
+            "ave_time": 2681,
+            "total_time": 1525862
+        },
+        "REQUEST_PARTITION_INFO": {
+            "id": 2009,
+            "count": 1469,
+            "ave_time": 498,
+            "total_time": 731926
+        },
+        "REQUEST_NODE_INFO": {
+            "id": 2007,
+            "count": 146,
+            "ave_time": 1529,
+            "total_time": 223257
+        },
+        "REQUEST_CANCEL_JOB_STEP": {
+            "id": 5005,
+            "count": 248,
+            "ave_time": 3237,
+            "total_time": 802898
+        },
+        "REQUEST_STEP_COMPLETE": {
+            "id": 5016,
+            "count": 148900,
+            "ave_time": 726,
+            "total_time": 108171286
+        },
+        "REQUEST_COMPLETE_JOB_ALLOCATION": {
+            "id": 5017,
+            "count": 27,
+            "ave_time": 1248,
+            "total_time": 33699
+        },
+        "MESSAGE_EPILOG_COMPLETE": {
+            "id": 6012,
+            "count": 79573,
+            "ave_time": 226,
+            "total_time": 18030138
+        },
+        "REQUEST_KILL_JOB": {
+            "id": 5032,
+            "count": 1002,
+            "ave_time": 4521,
+            "total_time": 4530910
+        },
+        "REQUEST_COMPLETE_BATCH_SCRIPT": {
+            "id": 5018,
+            "count": 79562,
+            "ave_time": 1171,
+            "total_time": 93240530
+        },
+        "REQUEST_SUBMIT_BATCH_JOB": {
+            "id": 4003,
+            "count": 70112,
+            "ave_time": 3084,
+            "total_time": 216248101
+        },
+        "REQUEST_COMPLETE_PROLOG": {
+            "id": 6018,
+            "count": 79648,
+            "ave_time": 1473,
+            "total_time": 117322509
+        },
+        "REQUEST_HET_JOB_ALLOC_INFO": {
+            "id": 4027,
+            "count": 69367,
+            "ave_time": 757,
+            "total_time": 52515510
+        },
+        "REQUEST_JOB_STEP_CREATE": {
+            "id": 5001,
+            "count": 69374,
+            "ave_time": 3017,
+            "total_time": 209328031
+        },
+        "REQUEST_FED_INFO": {
+            "id": 2049,
+            "count": 909,
+            "ave_time": 547,
+            "total_time": 497501
+        },
+        "REQUEST_JOB_USER_INFO": {
+            "id": 2039,
+            "count": 842,
+            "ave_time": 1738,
+            "total_time": 1464051
+        },
+        "REQUEST_JOB_REQUEUE": {
+            "id": 5023,
+            "count": 30,
+            "ave_time": 1422,
+            "total_time": 42688
+        },
+        "REQUEST_UPDATE_NODE": {
+            "id": 3002,
+            "count": 5,
+            "ave_time": 1575,
+            "total_time": 7875
+        },
+        "REQUEST_RESOURCE_ALLOCATION": {
+            "id": 4001,
+            "count": 21,
+            "ave_time": 6455,
+            "total_time": 135572
+        },
+        "REQUEST_JOB_READY": {
+            "id": 4019,
+            "count": 14,
+            "ave_time": 478,
+            "total_time": 6700
+        },
+        "REQUEST_JOB_ALLOCATION_INFO": {
+            "id": 4014,
+            "count": 10,
+            "ave_time": 702,
+            "total_time": 7027
+        },
+        "REQUEST_JOB_INFO_SINGLE": {
+            "id": 2021,
+            "count": 18,
+            "ave_time": 555,
+            "total_time": 9992
+        },
+        "REQUEST_JOB_STEP_INFO": {
+            "id": 2005,
+            "count": 1,
+            "ave_time": 583,
+            "total_time": 583
+        },
+        "REQUEST_BUILD_INFO": {
+            "id": 2001,
+            "count": 52,
+            "ave_time": 687,
+            "total_time": 35741
+        },
+        "REQUEST_STATS_INFO": {
+            "id": 2035,
+            "count": 6,
+            "ave_time": 560,
+            "total_time": 3364
+        }
+    },
+    "rpc_user_stats": {
+        "root": {
+            "id": 0,
+            "count": 398635,
+            "ave_time": 874,
+            "total_time": 348567049
+        },
+        "ubuntu": {
+            "id": 1002,
+            "count": 202,
+            "ave_time": 1165,
+            "total_time": 235377
+        },
+        "andrewsg": {
+            "id": 14004,
+            "count": 206731,
+            "ave_time": 2271,
+            "total_time": 469553801
+        },
+        "sheddn": {
+            "id": 11034,
+            "count": 3030,
+            "ave_time": 3522,
+            "total_time": 10672930
+        },
+        "elhajjajys": {
+            "id": 13003,
+            "count": 740,
+            "ave_time": 1389,
+            "total_time": 1028389
+        },
+        "campbellm": {
+            "id": 1514701014,
+            "count": 357,
+            "ave_time": 1555,
+            "total_time": 555261
+        },
+        "dugase": {
+            "id": 1514701016,
+            "count": 2287,
+            "ave_time": 2036,
+            "total_time": 4657296
+        },
+        "yutianx": {
+            "id": 11001,
+            "count": 68,
+            "ave_time": 2228,
+            "total_time": 151567
+        },
+        "mjp": {
+            "id": 1000,
+            "count": 8,
+            "ave_time": 1072,
+            "total_time": 8582
+        },
+        "kresgeb": {
+            "id": 1514701022,
+            "count": 504,
+            "ave_time": 1528,
+            "total_time": 770420
+        },
+        "ramirezc": {
+            "id": 1514701009,
+            "count": 259,
+            "ave_time": 1799,
+            "total_time": 465948
+        }
+    }
+}

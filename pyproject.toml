@@ -16,6 +16,9 @@ dependencies = [
     "unidecode",
     "pyslurm",
     "python-dotenv>=1.1.0",
+    "polars>=1.26.0",
+    "ipykernel>=6.29.5",
+    "prettytable>=3.16.0",
 ]
 
 [tool.uv.sources]

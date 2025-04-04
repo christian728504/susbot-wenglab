@@ -28,32 +28,30 @@ def get_slack_users():
 
 @cache_for_n_seconds(seconds=24 * 60 * 60)
 def get_slack2unix_map():
-    slack2unix_map = {}
-    slack2unix_map_score = {}
-    slack_users = get_slack_users()
-    for linux_user in pwd.getpwall():
-        if linux_user.pw_uid < 100 or linux_user.pw_name.startswith('.'):
-            continue
-        dic = {}
-        for slack_user in slack_users:
-            if slack_user['id'] == 'U01UCDZ1RT3':
-                continue
-            if 'real_name' in slack_user:
-                slack = unidecode(slack_user['real_name'].lower())
-                linux = unidecode(linux_user.pw_gecos.lower())
-                linux_fn = linux.rpartition(' ')[0]
-                linux_sn = linux.rpartition(' ')[-1]
-                slack_fn = slack.rpartition(' ')[0]
-                slack_sn = slack.rpartition(' ')[-1]
-                score = fuzz.partial_ratio(linux, slack)
-                score += fuzz.partial_ratio(linux_fn, slack_fn) / 4
-                score += fuzz.partial_ratio(linux_sn, slack_sn) / 10
-                dic.update({slack_user['real_name']: (slack_user['id'], score)})
-        if len(dic) > 0:
-            match_ = sorted(dic.items(), key=lambda x: -x[1][1])[0]
-            if match_[1][1] > 75:
-                match = match_
-                if match[1][0] not in slack2unix_map_score or (match[1][0] in slack2unix_map_score and slack2unix_map_score[match[1][0]] < match[1][1]):
-                    slack2unix_map_score.update({match[1][0]: match[1][1]})
-                    slack2unix_map.update({match[1][0]: linux_user.pw_name})
+    hardcoded_map = {
+        "U07BESQTQM6": "ramirezc",
+        "U086DUX6V4Y": "kresgeb"
+    }
+    logger.info("Using hardcoded mapping in get_slack2unix_map")
+    logger.info("Starting get_slack2unix_map")
+    slack2unix_map = hardcoded_map.copy()
+    # slack_users = get_slack_users()
+    # for linux_user in pwd.getpwall():
+    #     if linux_user.pw_uid < 100 or linux_user.pw_name.startswith('.'):
+    #         continue
+    #     # Get the GECOS field - this is the 5th field in /etc/passwd
+    #     linux_gecos = linux_user.pw_gecos
+        
+    #     for slack_user in slack_users:
+    #         if slack_user['id'] == 'U01UCDZ1RT3':
+    #             continue
+    #         if 'real_name' in slack_user:
+    #             # Debug log to see what's being compared
+    #             logger.debug(f"Comparing - Slack: '{slack_user['real_name']}' with Unix: '{linux_gecos}'")
+                
+    #             # Perform exact matching - the real_name must be exactly the same as the GECOS field
+    #             if slack_user['real_name'] == linux_gecos:
+    #                 # Found exact match - add to mapping
+    #                 slack2unix_map[slack_user['id']] = linux_user.pw_name
+    #                 logger.info(f"Exact match found - Slack: {slack_user['real_name']} -> Unix: {linux_user.pw_name}")
     return slack2unix_map
